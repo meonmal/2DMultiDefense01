@@ -1,20 +1,39 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class CharacterSpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject spawnPrefab;
+    [SerializeField]
+    private Monster spawnMonsterPrefab;
 
     /// <summary>
     /// 나누어진 칸들을 관리할 리스트
     /// </summary>
     private List<Vector2> spawnList = new List<Vector2>();
     private List<bool> spawnListArray = new List<bool>();
+    public static List<Vector2> moveList = new List<Vector2>();
 
     private void Start()
     {
         GridStart();
+
+        for(int i = 0; i< transform.childCount; i++)
+        {
+            moveList.Add(transform.GetChild(i).position);
+        }
+
+        StartCoroutine(SpawnMonsterCoroutine());
+    }
+
+    private IEnumerator SpawnMonsterCoroutine()
+    {
+        var go = Instantiate(spawnMonsterPrefab, moveList[0], Quaternion.identity);
+
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(SpawnMonsterCoroutine());
     }
 
     private void GridStart()
