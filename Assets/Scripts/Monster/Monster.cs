@@ -2,23 +2,34 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.Processors;
+using UnityEngine.UI;
 
 public class Monster : Character
 {
     public int hp = 0;
+    public int maxHp;
     private int targetValue;
     private bool isDead = false;
 
     [SerializeField]
     private float moveSpeed;
+    [SerializeField]
+    private HitText hitText;
+    [SerializeField]
+    private Image mFill;
+    [SerializeField]
+    private Image mFillDeco;
 
     public override void Start()
     {
+        hp = maxHp;
         base.Start();
     }
 
     private void Update()
     {
+        mFillDeco.fillAmount = Mathf.Lerp(mFillDeco.fillAmount, mFill.fillAmount, Time.deltaTime * 2.0f);
+
         if (isDead)
         {
             return;
@@ -45,6 +56,8 @@ public class Monster : Character
         }
 
         hp -= damage;
+        mFill.fillAmount = (float)hp / (float)maxHp;
+        Instantiate(hitText, transform.position, Quaternion.identity).Init(damage);
 
         if(hp <= 0)
         {
