@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4629752903417257231}
   - component: {fileID: 2925316160338861137}
-  m_Layer: 0
+  - component: {fileID: 6328531968094250539}
+  m_Layer: 6
   m_Name: Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +47,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95635f15df3fa254d9338f5c4ec86628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 20
   moveSpeed: 1
+--- !u!58 &6328531968094250539
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4393007449742576791}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.03, y: -0.3}
+  m_Radius: 0.3
 --- !u!1 &8232568943389681330
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +96,7 @@ GameObject:
   - component: {fileID: 4781508568214340948}
   - component: {fileID: 2304650705376863456}
   - component: {fileID: 4157212248300195140}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5535873414180941533}
   - component: {fileID: 7101532893186669598}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -32,7 +32,7 @@ public class CharacterSpawner : MonoBehaviour
     {
         var go = Instantiate(spawnMonsterPrefab, moveList[0], Quaternion.identity);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         StartCoroutine(SpawnMonsterCoroutine());
     }
 
